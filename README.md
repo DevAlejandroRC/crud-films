@@ -1,70 +1,110 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# API Películas
+Página web, la cual recibe un API construida en Laravel para mostrar, agregar, editar películas en cartelera mediante CRUD construido en BackEnd PHP y FrontEnd React, Boostrap (HTML, JS, CSS)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## Authors
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [@DevAlejandroRC](https://github.com/DevAlejandroRC)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Instalación
+### Recursos
+Dirigirnos a la carpeta resource, aqui encontraremos recursos como: 
+- api-films(API creada para el proyecto) 
+- MDB (base de datos del proyecto)
+### Configuración de api-films
+Como primer paso a seguir agregaremos api-films.zip a la ruta donde manejamos los recursos web PHP Laravel, en casos como:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- XAMPP 
+ruta a manejar:
+```
+C:\xampp\htdocs
+```
+Una vez agregado api-films.zip se debe descomprimir o desempaquetar el archivo. 
+- Realizado el paso anterior, abriremos la carpeta api-film y buscaremos la siguiente ruta y archivo:
+- Ruta:
+```
+C:\xampp\htdocs\api-films\.env
+```
+- Archivo:
+```
+.env
+```
+Procedemos a abrir el archivo .env y buscaremos la siguiente configuración aparecera en la linea 11 a la 16:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mdb
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Editaremos en caso de ser necesario cada una de las configuraciones, exceptuando DB_DATABASE=mdb y DB_CONNECTION=mysql, esto debido a que la base de datos a usar y tipo de conexión de mysql. Guardamos los cambios.
 
-### `npm run build`
+### Configuración de base de datos MDB
+Como primer paso, abriremos el entorno phpMyAdmin, y os dirigimos a la sección SQL, procedemos a ejecutar lo siguiente:
+```
+CREATE DATABASE IF NOT EXISTS MDB;
+```
+Lo anteriro nos generara a base de datos de la api.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Configuraciones finales
+Nuevamente nos remitimos a la carpeta api-films, mediante la consola de ejecución de comando o del entorno de desarrollo usado agregaremos el siguiente codigo:
+```
+php artisan migrate:fresh
+```
+- Nos genera la migración pernitente y agregara las tablas que necesita nuestra base de datos para la correcta ejecucón de la api
+# Tipos de peticiones de API Films
+#### Get all items
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```http
+  GET /api/movies
+```
+#### POST all items
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```http
+  POST /api/movies
+```
+#### POST item
 
-### `npm run eject`
+```http
+  POST /api/movies/id
+```
+#### PUT item
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```http
+  PUT /api/movies/id
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### DELETE item
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```http
+  DELETE /api/movies/id
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**. Id of item to fetch |
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Recursos esenciales
 
-### Code Splitting
+En la carpeta resource se encuentra la API construida en Laravel (api-films) y base de datos construida en Mysql (MDB).
+Para una guia de como agregar estos elementos ver sección de instalación
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## A considerar
+Importante y a resaltar: 
+- Para la ejecución del backend, debe estar iniciado nuestro servidor de php y mysql
+- Para la ejecución del front debemos encontrarnos en la carpeta de crud-films
+### Ejecución 
+En el directorio del proyecto, ejecutar el siguiente script mediante la consola o terminal:
+```
+npm run build
+npm start
+```
+Ejecuta la aplicación en http://localhost:3000.
+ 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
