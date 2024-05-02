@@ -2,6 +2,8 @@
 # API Películas
 Página web, la cual recibe un API construida en Laravel para mostrar, agregar, editar películas en cartelera mediante CRUD construido en BackEnd PHP y FrontEnd React, Boostrap (HTML, JS, CSS)
 
+![crudfilms](https://github.com/DevAlejandroRC/crud-films/assets/53066396/1925ad18-8cf3-4c3b-85b1-e43ddd3d3357)
+
 # Tipos de peticiones de API Films
 #### Get all items
 
